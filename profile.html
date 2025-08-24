@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="static/css/Dashboard.css">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <i data-feather="menu"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">
+                <i data-feather="grid"></i>
+                <span>Dashboard</span>
+            </h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i data-feather="home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <i data-feather="bar-chart-2"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="authors.html" class="nav-link">
+                        <i data-feather="users"></i>
+                        <span>Authors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="books.html" class="nav-link">
+                        <i data-feather="book"></i>
+                        <span>Books</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link active">
+                        <i data-feather="user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i data-feather="settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-item-logout">
+                    <a href="logout.html" class="nav-link">
+                        <i data-feather="log-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="page-title">Profile</h1>
+                    <p class="page-subtitle">Manage your personal information and preferences</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i data-feather="user"></i>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">John Doe</span>
+                            <span class="user-role">Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile Content -->
+        <section class="dashboard-content">
+            <div class="row">
+                <!-- Profile Overview -->
+                <div class="col-lg-4">
+                    <div class="content-card">
+                        <div class="card-content text-center">
+                            <div class="profile-avatar-large">
+                                <i data-feather="user"></i>
+                                <button class="btn btn-sm btn-primary avatar-upload">
+                                    <i data-feather="camera"></i>
+                                </button>
+                            </div>
+                            <h4 class="profile-name">John Doe</h4>
+                            <p class="profile-role">System Administrator</p>
+                            <p class="profile-email">john.doe@bookdashboard.com</p>
+                            
+                            <div class="profile-stats">
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h5>156</h5>
+                                            <small>Books Added</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h5>42</h5>
+                                            <small>Authors</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h5>89</h5>
+                                            <small>Reviews</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-badges">
+                                <span class="badge bg-primary">Admin</span>
+                                <span class="badge bg-success">Verified</span>
+                                <span class="badge bg-info">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h5 class="card-title">Quick Actions</h5>
+                        </div>
+                        <div class="card-content">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-primary">
+                                    <i data-feather="download"></i>
+                                    Export Profile Data
+                                </button>
+                                <button class="btn btn-outline-secondary">
+                                    <i data-feather="share-2"></i>
+                                    Share Profile
+                                </button>
+                                <button class="btn btn-outline-warning">
+                                    <i data-feather="archive"></i>
+                                    Archive Account
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="col-lg-8">
+                    <!-- Personal Information -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Personal Information</h3>
+                            <button class="btn btn-sm btn-outline-primary" id="editProfileBtn">
+                                <i data-feather="edit-2"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <form id="profileForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" value="John" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" value="Doe" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" id="email" value="john.doe@bookdashboard.com" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="department" class="form-label">Department</label>
+                                            <input type="text" class="form-control" id="department" value="Information Technology" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="position" class="form-label">Position</label>
+                                            <input type="text" class="form-control" id="position" value="System Administrator" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="bio" class="form-label">Bio</label>
+                                    <textarea class="form-control" id="bio" rows="3" readonly>Experienced system administrator with over 8 years in managing digital libraries and book management systems. Passionate about organizing literary content and helping authors reach their audience.</textarea>
+                                </div>
+                                <div class="profile-actions" style="display: none;">
+                                    <button type="button" class="btn btn-primary me-2" id="saveProfileBtn">Save Changes</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Activity Log -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Recent Activity</h3>
+                            <button class="card-action">
+                                <i data-feather="more-horizontal"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="activity-timeline">
+                                <div class="activity-timeline-item">
+                                    <div class="activity-timeline-marker bg-primary">
+                                        <i data-feather="book"></i>
+                                    </div>
+                                    <div class="activity-timeline-content">
+                                        <h6>Added new book "The Digital Revolution"</h6>
+                                        <p class="text-muted">Added a new science fiction novel to the collection</p>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-timeline-item">
+                                    <div class="activity-timeline-marker bg-success">
+                                        <i data-feather="user-plus"></i>
+                                    </div>
+                                    <div class="activity-timeline-content">
+                                        <h6>New author registered</h6>
+                                        <p class="text-muted">Sarah Mitchell joined as a new author</p>
+                                        <small class="text-muted">5 hours ago</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-timeline-item">
+                                    <div class="activity-timeline-marker bg-warning">
+                                        <i data-feather="edit"></i>
+                                    </div>
+                                    <div class="activity-timeline-content">
+                                        <h6>Updated book information</h6>
+                                        <p class="text-muted">Modified details for "Machine Learning Basics"</p>
+                                        <small class="text-muted">1 day ago</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-timeline-item">
+                                    <div class="activity-timeline-marker bg-info">
+                                        <i data-feather="settings"></i>
+                                    </div>
+                                    <div class="activity-timeline-content">
+                                        <h6>System settings updated</h6>
+                                        <p class="text-muted">Modified notification preferences</p>
+                                        <small class="text-muted">2 days ago</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-timeline-item">
+                                    <div class="activity-timeline-marker bg-secondary">
+                                        <i data-feather="download"></i>
+                                    </div>
+                                    <div class="activity-timeline-content">
+                                        <h6>Exported analytics report</h6>
+                                        <p class="text-muted">Generated monthly performance report</p>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Security -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Account Security</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="security-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="security-item">
+                                            <div class="security-icon">
+                                                <i data-feather="shield" class="text-success"></i>
+                                            </div>
+                                            <div class="security-content">
+                                                <h6>Two-Factor Authentication</h6>
+                                                <p class="text-muted">Enabled</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="security-item">
+                                            <div class="security-icon">
+                                                <i data-feather="lock" class="text-success"></i>
+                                            </div>
+                                            <div class="security-content">
+                                                <h6>Password</h6>
+                                                <p class="text-muted">Last changed 30 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="security-item">
+                                            <div class="security-icon">
+                                                <i data-feather="smartphone" class="text-warning"></i>
+                                            </div>
+                                            <div class="security-content">
+                                                <h6>Login Notifications</h6>
+                                                <p class="text-muted">Email & SMS</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="security-item">
+                                            <div class="security-icon">
+                                                <i data-feather="clock" class="text-info"></i>
+                                            </div>
+                                            <div class="security-content">
+                                                <h6>Last Login</h6>
+                                                <p class="text-muted">Today at 9:15 AM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('sidebar-open');
+            sidebarOverlay.classList.toggle('overlay-active');
+            document.body.classList.toggle('sidebar-mobile-open');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Close sidebar when clicking on navigation links on mobile
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('sidebar-open');
+                sidebarOverlay.classList.remove('overlay-active');
+                document.body.classList.remove('sidebar-mobile-open');
+            }
+        });
+
+        // Initialize page animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on load
+            document.querySelector('.header').classList.add('slide-down');
+            document.querySelector('.sidebar').classList.add('slide-right');
+
+            const contentCards = document.querySelectorAll('.content-card');
+            contentCards.forEach((card, index) => {
+                card.style.animationDelay = `${0.2 + index * 0.1}s`;
+                card.classList.add('fade-in-up');
+            });
+
+            // Profile editing functionality
+            setupProfileEditing();
+        });
+
+        function setupProfileEditing() {
+            const editBtn = document.getElementById('editProfileBtn');
+            const saveBtn = document.getElementById('saveProfileBtn');
+            const cancelBtn = document.getElementById('cancelEditBtn');
+            const profileActions = document.querySelector('.profile-actions');
+            const formInputs = document.querySelectorAll('#profileForm input, #profileForm textarea');
+
+            let originalValues = {};
+
+            editBtn.addEventListener('click', function() {
+                // Store original values
+                formInputs.forEach(input => {
+                    originalValues[input.id] = input.value;
+                    input.removeAttribute('readonly');
+                });
+
+                // Show save/cancel buttons, hide edit button
+                this.style.display = 'none';
+                profileActions.style.display = 'block';
+
+                // Focus first input
+                document.getElementById('firstName').focus();
+            });
+
+            saveBtn.addEventListener('click', function() {
+                // Simulate saving
+                this.textContent = 'Saving...';
+                this.disabled = true;
+
+                setTimeout(() => {
+                    // Reset UI
+                    formInputs.forEach(input => {
+                        input.setAttribute('readonly', true);
+                    });
+
+                    editBtn.style.display = 'inline-flex';
+                    profileActions.style.display = 'none';
+                    
+                    this.textContent = 'Save Changes';
+                    this.disabled = false;
+
+                    // Show success message
+                    showToast('Profile updated successfully!', 'success');
+                }, 1000);
+            });
+
+            cancelBtn.addEventListener('click', function() {
+                // Restore original values
+                formInputs.forEach(input => {
+                    input.value = originalValues[input.id];
+                    input.setAttribute('readonly', true);
+                });
+
+                // Reset UI
+                editBtn.style.display = 'inline-flex';
+                profileActions.style.display = 'none';
+            });
+        }
+
+        function showToast(message, type = 'info') {
+            const toastContainer = document.createElement('div');
+            toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+            toastContainer.style.zIndex = '1060';
+
+            const toast = document.createElement('div');
+            toast.className = `toast align-items-center text-white bg-${type} border-0`;
+            toast.setAttribute('role', 'alert');
+            toast.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body">${message}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+            document.body.appendChild(toastContainer);
+
+            const bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+
+            // Remove container after toast is hidden
+            toast.addEventListener('hidden.bs.toast', () => {
+                document.body.removeChild(toastContainer);
+            });
+        }
+    </script>
+</body>
+</html>

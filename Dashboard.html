@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="static/css/Dashboard.css">
+    <!-- Feather Icons for clean iconography -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <i data-feather="menu"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">
+                <i data-feather="grid"></i>
+                <span>Dashboard</span>
+            </h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i data-feather="home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <i data-feather="bar-chart-2"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="authors.html" class="nav-link">
+                        <i data-feather="users"></i>
+                        <span>Authors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="books.html" class="nav-link">
+                        <i data-feather="book"></i>
+                        <span>Books</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i data-feather="user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i data-feather="settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-item-logout">
+                    <a href="logout.html" class="nav-link">
+                        <i data-feather="log-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="page-title">Dashboard Overview</h1>
+                    <p class="page-subtitle">Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i data-feather="user"></i>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">Subham Debnath</span>
+                            <span id="userDisplayName">Loading...</span>
+                            <span class="user-role">Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <section class="dashboard-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Active users in the last 30 days">
+                    <div class="stat-icon stat-icon-primary">
+                        <i data-feather="users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">2,543</h3>
+                        <p class="stat-label">Total Users</p>
+                        <span class="stat-change stat-change-positive">
+                            <i data-feather="trending-up"></i>
+                            +12.5%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Total revenue this month">
+                    <div class="stat-icon stat-icon-success">
+                        <i data-feather="dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">$48,291</h3>
+                        <p class="stat-label">Revenue</p>
+                        <span class="stat-change stat-change-positive">
+                            <i data-feather="trending-up"></i>
+                            +8.2%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Orders processed this week">
+                    <div class="stat-icon stat-icon-warning">
+                        <i data-feather="shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">1,429</h3>
+                        <p class="stat-label">Orders</p>
+                        <span class="stat-change stat-change-negative">
+                            <i data-feather="trending-down"></i>
+                            -3.1%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="System performance metrics">
+                    <div class="stat-icon stat-icon-info">
+                        <i data-feather="activity"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">94.2%</h3>
+                        <p class="stat-label">Performance</p>
+                        <span class="stat-change stat-change-positive">
+                            <i data-feather="trending-up"></i>
+                            +2.4%
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Cards -->
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Activity</h3>
+                        <button class="card-action">
+                            <i data-feather="more-horizontal"></i>
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-feather="user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">New user registered</p>
+                                    <span class="activity-time">2 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-feather="shopping-bag"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Order #1234 completed</p>
+                                    <span class="activity-time">15 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-feather="credit-card"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Payment received</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Analytics Overview</h3>
+                        <button class="card-action">
+                            <i data-feather="external-link"></i>
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="chart-placeholder">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height: 60%"></div>
+                                <div class="chart-bar" style="height: 80%"></div>
+                                <div class="chart-bar" style="height: 45%"></div>
+                                <div class="chart-bar" style="height: 90%"></div>
+                                <div class="chart-bar" style="height: 70%"></div>
+                                <div class="chart-bar" style="height: 55%"></div>
+                                <div class="chart-bar" style="height: 85%"></div>
+                            </div>
+                            <p class="chart-description">
+                                Traffic trends for the last 7 days
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="action-buttons">
+                            <button class="action-btn action-btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#addUserModal">
+                                <i data-feather="plus"></i>
+                                Add User
+                            </button>
+                            <button class="action-btn action-btn-secondary" data-bs-toggle="tooltip"
+                                title="Download CSV report">
+                                <i data-feather="download"></i>
+                                Export Data
+                            </button>
+                            <button class="action-btn action-btn-outline" data-bs-toggle="tooltip"
+                                title="Send weekly report via email">
+                                <i data-feather="mail"></i>
+                                Send Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">
+                        <i data-feather="user-plus"></i>
+                        Add New User
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="userName" placeholder="Enter full name"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="Enter email address"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="userPassword" placeholder="Enter password"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="userRole" class="form-label">Role</label>
+                            <select class="form-select" id="userRole" required>
+                                <option value="">Select a role</option>
+                                <option value="admin">Administrator</option>
+                                <option value="manager">Manager</option>
+                                <option value="user">User</option>
+                                <option value="viewer">Viewer</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userDepartment" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="userDepartment" placeholder="Enter department">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveUserBtn">
+                        <i data-feather="save"></i>
+                        Save User
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1060;">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i data-feather="check-circle"></i>
+                    User added successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div id="exportToast" class="toast align-items-center text-white bg-info border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i data-feather="download"></i>
+                    Data export started...
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div id="reportToast" class="toast align-items-center text-white bg-primary border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i data-feather="mail"></i>
+                    Report sent successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('sidebar-open');
+            sidebarOverlay.classList.toggle('overlay-active');
+            document.body.classList.toggle('sidebar-mobile-open');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Close sidebar when clicking on navigation links on mobile
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('sidebar-open');
+                sidebarOverlay.classList.remove('overlay-active');
+                document.body.classList.remove('sidebar-mobile-open');
+            }
+        });
+
+        // Add animation classes when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Bootstrap tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Animate stats cards on load
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('fade-in-up');
+            });
+
+            // Animate content cards
+            const contentCards = document.querySelectorAll('.content-card');
+            contentCards.forEach((card, index) => {
+                card.style.animationDelay = `${0.4 + index * 0.1}s`;
+                card.classList.add('fade-in-up');
+            });
+
+            // Animate header
+            document.querySelector('.header').classList.add('slide-down');
+
+            // Animate sidebar
+            document.querySelector('.sidebar').classList.add('slide-right');
+
+            // Counter animation for stat numbers
+            animateCounters();
+
+            // Modal and toast functionality
+            setupModalAndToastHandlers();
+        });
+
+        // Counter animation function
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                const isPercentage = target.includes('%');
+                const isCurrency = target.includes('$');
+                const numericValue = parseFloat(target.replace(/[^\d.]/g, ''));
+
+                let current = 0;
+                const increment = numericValue / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericValue) {
+                        current = numericValue;
+                        clearInterval(timer);
+                    }
+
+                    let displayValue = Math.floor(current);
+                    if (isCurrency) {
+                        displayValue = '$' + displayValue.toLocaleString();
+                    } else if (isPercentage) {
+                        displayValue = (current).toFixed(1) + '%';
+                    } else {
+                        displayValue = displayValue.toLocaleString();
+                    }
+
+                    counter.textContent = displayValue;
+                }, 20);
+            });
+        }
+
+        // Add click animations to buttons
+        document.addEventListener('click', function (e) {
+            if (e.target.matches('.action-btn') || e.target.closest('.action-btn')) {
+                const btn = e.target.matches('.action-btn') ? e.target : e.target.closest('.action-btn');
+                btn.classList.add('btn-clicked');
+                setTimeout(() => btn.classList.remove('btn-clicked'), 200);
+            }
+        });
+
+        // Add hover effect to chart bars
+        const chartBars = document.querySelectorAll('.chart-bar');
+        chartBars.forEach((bar, index) => {
+            bar.addEventListener('mouseenter', function () {
+                this.style.transform = 'scaleY(1.1) scaleX(1.1)';
+                this.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.3)';
+            });
+
+            bar.addEventListener('mouseleave', function () {
+                this.style.transform = 'scaleY(1) scaleX(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Setup modal and toast handlers
+        function setupModalAndToastHandlers() {
+            // Add User button handler
+            const saveUserBtn = document.getElementById('saveUserBtn');
+            const addUserForm = document.getElementById('addUserForm');
+            const addUserModal = new bootstrap.Modal(document.getElementById('addUserModal'));
+
+            saveUserBtn.addEventListener('click', function () {
+                if (addUserForm.checkValidity()) {
+                    // Simulate user creation
+                    const userName = document.getElementById('userName').value;
+                    const userEmail = document.getElementById('userEmail').value;
+                    const userRole = document.getElementById('userRole').value;
+
+                    // Close modal
+                    addUserModal.hide();
+
+                    // Reset form
+                    addUserForm.reset();
+
+                    // Show success toast
+                    showToast('successToast');
+
+                    // Add bounce animation to user stat card
+                    document.querySelector('.stat-card:first-child').classList.add('bounce-animation');
+                    setTimeout(() => {
+                        document.querySelector('.stat-card:first-child').classList.remove('bounce-animation');
+                    }, 1000);
+                } else {
+                    addUserForm.reportValidity();
+                }
+            });
+
+            // Export Data button handler
+            const exportBtn = document.querySelector('button[title="Download CSV report"]');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', function () {
+                    showToast('exportToast');
+
+                    // Add pulse animation to revenue card
+                    const revenueCard = document.querySelector('.stat-card:nth-child(2)');
+                    if (revenueCard) {
+                        revenueCard.classList.add('pulse-animation');
+                        setTimeout(() => {
+                            revenueCard.classList.remove('pulse-animation');
+                        }, 2000);
+                    }
+                });
+            }
+
+            // Send Report button handler
+            const reportBtn = document.querySelector('button[title="Send weekly report via email"]');
+            if (reportBtn) {
+                reportBtn.addEventListener('click', function () {
+                    showToast('reportToast');
+
+                    // Add shimmer effect to analytics card
+                    const analyticsCard = document.querySelector('.content-card:nth-child(2)');
+                    if (analyticsCard) {
+                        analyticsCard.classList.add('shimmer');
+                        setTimeout(() => {
+                            analyticsCard.classList.remove('shimmer');
+                        }, 1500);
+                    }
+                });
+            }
+        }
+
+        // Show toast notification
+        function showToast(toastId) {
+            const toastElement = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElement);
+
+            // Re-initialize feather icons in toast
+            feather.replace();
+
+            toast.show();
+        }
+
+        // Add progressive enhancement for form validation
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    if (!form.checkValidity()) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

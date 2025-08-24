@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="static/css/Dashboard.css">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <i data-feather="menu"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">
+                <i data-feather="grid"></i>
+                <span>Dashboard</span>
+            </h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i data-feather="home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <i data-feather="bar-chart-2"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="authors.html" class="nav-link">
+                        <i data-feather="users"></i>
+                        <span>Authors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="books.html" class="nav-link active">
+                        <i data-feather="book"></i>
+                        <span>Books</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i data-feather="user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i data-feather="settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-item-logout">
+                    <a href="logout.html" class="nav-link">
+                        <i data-feather="log-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="page-title">Book Library</h1>
+                    <p class="page-subtitle">Discover and manage your collection</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">
+                        <i data-feather="plus"></i>
+                        Add Book
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Books Content -->
+        <section class="dashboard-content">
+            <!-- Search and Filters -->
+            <div class="content-card">
+                <div class="card-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4">
+                            <div class="search-box">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i data-feather="search"></i>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Search books..." id="bookSearch">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <select class="form-select" id="genreFilter">
+                                <option value="">All Genres</option>
+                                <option value="fiction">Fiction</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="romance">Romance</option>
+                                <option value="sci-fi">Science Fiction</option>
+                                <option value="biography">Biography</option>
+                                <option value="self-help">Self Help</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <select class="form-select" id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="available">Available</option>
+                                <option value="borrowed">Borrowed</option>
+                                <option value="reserved">Reserved</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="btn-group w-100" role="group">
+                                <button type="button" class="btn btn-outline-secondary active" id="gridView">
+                                    <i data-feather="grid"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="listView">
+                                    <i data-feather="list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Books Grid -->
+            <div class="books-container" id="booksContainer">
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Crect width='120' height='180' fill='%234F46E5'/%3E%3Ctext x='60' y='90' text-anchor='middle' fill='white' font-size='14' font-family='Arial'%3EThe%3C/text%3E%3Ctext x='60' y='110' text-anchor='middle' fill='white' font-size='14' font-family='Arial'%3EMystery%3C/text%3E%3C/svg%3E" alt="The Mystery">
+                        <div class="book-status">
+                            <span class="badge bg-success">Available</span>
+                        </div>
+                    </div>
+                    <div class="book-content">
+                        <h6 class="book-title">The Mystery of Blackwood Manor</h6>
+                        <p class="book-author">by Jane Smith</p>
+                        <p class="book-genre">Mystery</p>
+                        <div class="book-rating">
+                            <div class="stars">
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star"></i>
+                            </div>
+                            <span class="rating-text">4.2 (124 reviews)</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Reserve</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Crect width='120' height='180' fill='%2310B981'/%3E%3Ctext x='60' y='80' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3ESpace%3C/text%3E%3Ctext x='60' y='100' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3EOdyssey%3C/text%3E%3Ctext x='60' y='120' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3E2084%3C/text%3E%3C/svg%3E" alt="Space Odyssey 2084">
+                        <div class="book-status">
+                            <span class="badge bg-warning">Borrowed</span>
+                        </div>
+                    </div>
+                    <div class="book-content">
+                        <h6 class="book-title">Space Odyssey 2084</h6>
+                        <p class="book-author">by Michael Johnson</p>
+                        <p class="book-genre">Science Fiction</p>
+                        <div class="book-rating">
+                            <div class="stars">
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                            </div>
+                            <span class="rating-text">4.8 (89 reviews)</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Reserve</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Crect width='120' height='180' fill='%23F59E0B'/%3E%3Ctext x='60' y='80' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3ELove%3C/text%3E%3Ctext x='60' y='100' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3Ein%3C/text%3E%3Ctext x='60' y='120' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3EParis%3C/text%3E%3C/svg%3E" alt="Love in Paris">
+                        <div class="book-status">
+                            <span class="badge bg-info">Reserved</span>
+                        </div>
+                    </div>
+                    <div class="book-content">
+                        <h6 class="book-title">Love in Paris</h6>
+                        <p class="book-author">by Sarah Wilson</p>
+                        <p class="book-genre">Romance</p>
+                        <div class="book-rating">
+                            <div class="stars">
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star"></i>
+                            </div>
+                            <span class="rating-text">4.6 (201 reviews)</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Reserve</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Crect width='120' height='180' fill='%23EF4444'/%3E%3Ctext x='60' y='80' text-anchor='middle' fill='white' font-size='10' font-family='Arial'%3ELincoln%3C/text%3E%3Ctext x='60' y='100' text-anchor='middle' fill='white' font-size='10' font-family='Arial'%3EBiography%3C/text%3E%3C/svg%3E" alt="Lincoln Biography">
+                        <div class="book-status">
+                            <span class="badge bg-success">Available</span>
+                        </div>
+                    </div>
+                    <div class="book-content">
+                        <h6 class="book-title">Abraham Lincoln: A Life</h6>
+                        <p class="book-author">by Robert Brown</p>
+                        <p class="book-genre">Biography</p>
+                        <div class="book-rating">
+                            <div class="stars">
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                            </div>
+                            <span class="rating-text">4.9 (156 reviews)</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Reserve</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Crect width='120' height='180' fill='%2306B6D4'/%3E%3Ctext x='60' y='80' text-anchor='middle' fill='white' font-size='10' font-family='Arial'%3EMindful%3C/text%3E%3Ctext x='60' y='100' text-anchor='middle' fill='white' font-size='10' font-family='Arial'%3ELiving%3C/text%3E%3C/svg%3E" alt="Mindful Living">
+                        <div class="book-status">
+                            <span class="badge bg-success">Available</span>
+                        </div>
+                    </div>
+                    <div class="book-content">
+                        <h6 class="book-title">Mindful Living Guide</h6>
+                        <p class="book-author">by Lisa Davis</p>
+                        <p class="book-genre">Self Help</p>
+                        <div class="book-rating">
+                            <div class="stars">
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star"></i>
+                            </div>
+                            <span class="rating-text">4.3 (312 reviews)</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Reserve</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Crect width='120' height='180' fill='%238B5CF6'/%3E%3Ctext x='60' y='80' text-anchor='middle' fill='white' font-size='10' font-family='Arial'%3EUrban%3C/text%3E%3Ctext x='60' y='100' text-anchor='middle' fill='white' font-size='10' font-family='Arial'%3ETales%3C/text%3E%3C/svg%3E" alt="Urban Tales">
+                        <div class="book-status">
+                            <span class="badge bg-success">Available</span>
+                        </div>
+                    </div>
+                    <div class="book-content">
+                        <h6 class="book-title">Urban Tales</h6>
+                        <p class="book-author">by David Miller</p>
+                        <p class="book-genre">Fiction</p>
+                        <div class="book-rating">
+                            <div class="stars">
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star" class="star-filled"></i>
+                                <i data-feather="star"></i>
+                                <i data-feather="star"></i>
+                            </div>
+                            <span class="rating-text">3.8 (67 reviews)</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Reserve</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Books pagination">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Book Modal -->
+    <div class="modal fade" id="addBookModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i data-feather="book-open"></i>
+                        Add New Book
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addBookForm">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="bookTitle" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="bookTitle" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="bookAuthor" class="form-label">Author</label>
+                                            <select class="form-select" id="bookAuthor" required>
+                                                <option value="">Select author</option>
+                                                <option value="jane-smith">Jane Smith</option>
+                                                <option value="michael-johnson">Michael Johnson</option>
+                                                <option value="sarah-wilson">Sarah Wilson</option>
+                                                <option value="robert-brown">Robert Brown</option>
+                                                <option value="lisa-davis">Lisa Davis</option>
+                                                <option value="david-miller">David Miller</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="bookISBN" class="form-label">ISBN</label>
+                                            <input type="text" class="form-control" id="bookISBN" placeholder="978-0-123456-78-9">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="bookGenre" class="form-label">Genre</label>
+                                            <select class="form-select" id="bookGenre" required>
+                                                <option value="">Select genre</option>
+                                                <option value="fiction">Fiction</option>
+                                                <option value="mystery">Mystery</option>
+                                                <option value="romance">Romance</option>
+                                                <option value="sci-fi">Science Fiction</option>
+                                                <option value="biography">Biography</option>
+                                                <option value="self-help">Self Help</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="bookPages" class="form-label">Pages</label>
+                                            <input type="number" class="form-control" id="bookPages" min="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="bookPublisher" class="form-label">Publisher</label>
+                                            <input type="text" class="form-control" id="bookPublisher">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="bookYear" class="form-label">Publication Year</label>
+                                            <input type="number" class="form-control" id="bookYear" min="1800" max="2024">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="bookDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="bookDescription" rows="4" placeholder="Brief description of the book..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Book Cover</label>
+                                    <div class="book-cover-upload">
+                                        <div class="cover-preview">
+                                            <i data-feather="image"></i>
+                                            <p>Upload Cover Image</p>
+                                        </div>
+                                        <input type="file" class="form-control" id="bookCover" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="bookStatus" class="form-label">Status</label>
+                                    <select class="form-select" id="bookStatus">
+                                        <option value="available">Available</option>
+                                        <option value="borrowed">Borrowed</option>
+                                        <option value="reserved">Reserved</option>
+                                        <option value="maintenance">Under Maintenance</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="bookPrice" class="form-label">Price ($)</label>
+                                    <input type="number" class="form-control" id="bookPrice" step="0.01" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveBookBtn">
+                        <i data-feather="save"></i>
+                        Save Book
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('sidebar-open');
+            sidebarOverlay.classList.toggle('overlay-active');
+            document.body.classList.toggle('sidebar-mobile-open');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Close sidebar when clicking on navigation links on mobile
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('sidebar-open');
+                sidebarOverlay.classList.remove('overlay-active');
+                document.body.classList.remove('sidebar-mobile-open');
+            }
+        });
+
+        // Initialize page animations
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.header').classList.add('slide-down');
+            document.querySelector('.sidebar').classList.add('slide-right');
+
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach((card, index) => {
+                card.style.animationDelay = `${0.1 + index * 0.1}s`;
+                card.classList.add('fade-in-up');
+            });
+
+            // Initialize functionality
+            setupSearchAndFilter();
+            setupViewToggle();
+            setupBookModal();
+        });
+
+        function setupSearchAndFilter() {
+            const searchInput = document.getElementById('bookSearch');
+            const genreFilter = document.getElementById('genreFilter');
+            const statusFilter = document.getElementById('statusFilter');
+            const bookCards = document.querySelectorAll('.book-card');
+
+            function filterBooks() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedGenre = genreFilter.value.toLowerCase();
+                const selectedStatus = statusFilter.value.toLowerCase();
+
+                bookCards.forEach(card => {
+                    const title = card.querySelector('.book-title').textContent.toLowerCase();
+                    const author = card.querySelector('.book-author').textContent.toLowerCase();
+                    const genre = card.querySelector('.book-genre').textContent.toLowerCase();
+                    const status = card.querySelector('.badge').textContent.toLowerCase();
+                    
+                    const matchesSearch = title.includes(searchTerm) || author.includes(searchTerm);
+                    const matchesGenre = !selectedGenre || genre.includes(selectedGenre);
+                    const matchesStatus = !selectedStatus || status.includes(selectedStatus);
+
+                    if (matchesSearch && matchesGenre && matchesStatus) {
+                        card.style.display = 'block';
+                        card.classList.add('fade-in-up');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('fade-in-up');
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterBooks);
+            genreFilter.addEventListener('change', filterBooks);
+            statusFilter.addEventListener('change', filterBooks);
+        }
+
+        function setupViewToggle() {
+            const gridViewBtn = document.getElementById('gridView');
+            const listViewBtn = document.getElementById('listView');
+            const booksContainer = document.getElementById('booksContainer');
+
+            gridViewBtn.addEventListener('click', function() {
+                booksContainer.className = 'books-container';
+                this.classList.add('active');
+                listViewBtn.classList.remove('active');
+            });
+
+            listViewBtn.addEventListener('click', function() {
+                booksContainer.className = 'books-container books-list-view';
+                this.classList.add('active');
+                gridViewBtn.classList.remove('active');
+            });
+        }
+
+        function setupBookModal() {
+            const saveBookBtn = document.getElementById('saveBookBtn');
+            const addBookForm = document.getElementById('addBookForm');
+            const addBookModal = new bootstrap.Modal(document.getElementById('addBookModal'));
+
+            saveBookBtn.addEventListener('click', function() {
+                if (addBookForm.checkValidity()) {
+                    this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Saving...';
+                    this.disabled = true;
+
+                    setTimeout(() => {
+                        addBookModal.hide();
+                        addBookForm.reset();
+                        this.innerHTML = '<i data-feather="save"></i> Save Book';
+                        this.disabled = false;
+                        feather.replace();
+
+                        showToast('Book added successfully!', 'success');
+                    }, 1500);
+                } else {
+                    addBookForm.reportValidity();
+                }
+            });
+
+            // Cover upload preview
+            const coverInput = document.getElementById('bookCover');
+            const coverPreview = document.querySelector('.cover-preview');
+
+            coverInput.addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        coverPreview.innerHTML = `<img src="${e.target.result}" alt="Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">`;
+                    };
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+        }
+
+        function showToast(message, type = 'info') {
+            const toastContainer = document.createElement('div');
+            toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+            toastContainer.style.zIndex = '1060';
+
+            const toast = document.createElement('div');
+            toast.className = `toast align-items-center text-white bg-${type} border-0`;
+            toast.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body">${message}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+            document.body.appendChild(toastContainer);
+
+            const bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+
+            toast.addEventListener('hidden.bs.toast', () => {
+                document.body.removeChild(toastContainer);
+            });
+        }
+    </script>
+</body>
+</html>

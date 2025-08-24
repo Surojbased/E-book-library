@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors | Library</title>
+    <link rel="stylesheet" href="static/css/author.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <a href="#">Modern<span>Library</span></a>
+            </div>
+            <nav class="header__nav">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul class="nav__list">
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Books</a></li> -->
+                    <li class="nav__item"><a href="#" class="nav__link active">Authors</a></li>
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Categories</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Contact</a></li> -->
+                </ul>
+            </nav>
+            <div class="header__theme-toggle">
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="theme-toggle-label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">Meet Our <span>Authors</span></h1>
+                <p class="hero__subtitle">Discover the brilliant minds behind our collection</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search authors...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="authors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Authors</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="authors-grid">
+                <!-- Author 1 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/g79bdfca8b20a5939f0ae5dd819ac69220366984547ce9986d513752c62618c94e754f3bda2ca0bc20790e5aa3327a698d6cb81e77b140f65610a31129c21fb93_1280.jpg" alt="Author Emma Roberts">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Emma Roberts</h3>
+                        <p class="author-card__bio">Award-winning novelist exploring themes of identity and belonging through compelling character-driven narratives.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 8 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 2 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/g91ec590de52316620582847cf1324f4d297b1b5d7979e65f7cd6280130d000d1c320eb5962461c432631a9d6bf198e56004e86ed6a3b23fd7070ac6c1f332690_1280.jpg" alt="Author Michael Chen">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Michael Chen</h3>
+                        <p class="author-card__bio">Historical fiction specialist known for meticulously researched works that bring ancient civilizations to life.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 12 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 3 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/gaf90542e1a77d855999f53eaa3c11c623cc6602b6666eb2ba89f9da00d777bd132ad6afde82997af2e0f4e0381c53a339856942929890b955d72007bdd41509d_1280.jpg" alt="Author Sophia Patel">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Sophia Patel</h3>
+                        <p class="author-card__bio">Bestselling poet and essayist whose lyrical prose tackles contemporary social issues with empathy and insight.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 6 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 4 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/g2066d12ec6fa6a7109462f5d7e2062d22fcdf91285742c1a0a6e803320561a0c2e89f0737d408665ddd5165c17a5f81c5a3d0aa4303eccb472850f3fa9f044c3_1280.jpg" alt="Author James Wilson">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">James Wilson</h3>
+                        <p class="author-card__bio">Science fiction visionary creating complex, thought-provoking worlds that challenge our understanding of reality.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 14 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 5 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/g0343485b39846c685cc3d6055a762494e1f66df3b546ad146ac9315974f3fdb2c9c7c62b8a9a5552e50f2449c0d65138e36aa87e5879b1f738706d48cdb0153b_1280.jpg" alt="Author Olivia Martínez">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Olivia Martínez</h3>
+                        <p class="author-card__bio">Celebrated mystery writer whose intricate plots and compelling characters have earned international acclaim.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 9 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 6 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/g0a7aa52a488bb21860dd73f768b90dc1b742f805d3e7838a10d1077e27d4c17c0b3c577405e8fe74559189c9a5056dbcc05c47a2b345c29fcd606eefe6734601_1280.jpg" alt="Author Thomas Greene">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Thomas Greene</h3>
+                        <p class="author-card__bio">Philosophical fiction writer exploring existential questions through captivating narratives that resonate across cultures.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 11 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 7 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/ge21eb98a33a02d8bbc51e67ef2239e2a6007a29cffd1302a7324b140f86e0a46bb43f19ce663aaeabc99dc35251f9ab1141364f5b5bf812ad0da6388282543fe_1280.jpg" alt="Author Amara Okafor">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Amara Okafor</h3>
+                        <p class="author-card__bio">Rising literary star whose debut novels blend magical realism with powerful stories of personal and cultural identity.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 4 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Author 8 -->
+                <div class="author-card">
+                    <div class="author-card__image">
+                        <img src="https://pixabay.com/get/gad0e614d754daa3dae34c892652caa2e6119249c5c0c2df6e6400ac86b7189721527cf6be945e095fafedec4c24b306718376832c6f3d487b2ffc169a71551f5_1280.jpg" alt="Author Daniel Kim">
+                    </div>
+                    <div class="author-card__content">
+                        <h3 class="author-card__name">Daniel Kim</h3>
+                        <p class="author-card__bio">Acclaimed biographer and historian whose narratives bring historical figures to life with unprecedented depth and accuracy.</p>
+                        <div class="author-card__stats">
+                            <span class="books-count"><i class="fas fa-book"></i> 7 Books</span>
+                        </div>
+                        <a href="#" class="btn-view-books">View Books <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <a href="#">Modern<span>Library</span></a>
+                </div>
+                <div class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <!-- <li class="footer__nav-item"><a href="#" class="footer__nav-link">Home</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__nav-link">Books</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__nav-link">Authors</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__nav-link">Categories</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__nav-link">Contact</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="copyright">&copy; 2025 Modern Library. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

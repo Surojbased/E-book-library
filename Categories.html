@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literary Haven - Your Digital Library</title>
+    <link rel="stylesheet" href="static/css/Categories.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="#" class="logo">
+                    <h1 class="logo__text">Literary<span>Haven</span></h1>
+                </a>
+                
+                <div class="search">
+                    <input type="text" class="search__input" placeholder="Search for books, authors...">
+                    <button class="search__button"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" class="theme-switch__checkbox">
+                    <div class="theme-switch__toggle">
+                        <i class="fas fa-sun theme-switch__icon theme-switch__icon--sun"></i>
+                        <i class="fas fa-moon theme-switch__icon theme-switch__icon--moon"></i>
+                        <span class="theme-switch__ball"></span>
+                    </div>
+                </label>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="nav-toggle__bar"></span>
+                    <span class="nav-toggle__bar"></span>
+                    <span class="nav-toggle__bar"></span>
+                </button>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link nav__link--active">Home</a></li>
+                    <li class="nav__item"><a href="#categories" class="nav__link">Categories</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Authors</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h2 class="hero__title fade-in">Discover Your Next Favorite Book</h2>
+                    <p class="hero__text fade-in">Explore our vast collection of books across various genres. From thrilling adventures to heartwarming romances, we have something for every reader.</p>
+                    <div class="hero__cta fade-in">
+                        <a href="#featured" class="btn btn--primary">Explore Library</a>
+                        <a href="#categories" class="btn btn--secondary">Browse Categories</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="featured" id="featured">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Featured Books</h2>
+                    <p class="section-header__subtitle">Handpicked selections from our librarians</p>
+                </div>
+                
+                <div class="book-grid">
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book1.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">The Silent Echo</h3>
+                            <p class="book-card__author">by Eleanor Blackwood</p>
+                            <p class="book-card__desc">A haunting tale of mystery and self-discovery set in the misty mountains of Scotland.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Mystery</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book2.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">Quantum Horizons</h3>
+                            <p class="book-card__author">by Dr. Maxwell Richards</p>
+                            <p class="book-card__desc">An exploration of theoretical physics and the boundaries of our universe.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Science</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book3.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">Gardens of Delight</h3>
+                            <p class="book-card__author">by Sophia Chen</p>
+                            <p class="book-card__desc">A sensuous journey through time, exploring gardens that changed history.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">History</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book4.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">Starlit Passages</h3>
+                            <p class="book-card__author">by James Nightingale</p>
+                            <p class="book-card__desc">An epic space odyssey where humanity's future hangs in the balance.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Sci-Fi</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="categories" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Browse Categories</h2>
+                    <p class="section-header__subtitle">Find books by your favorite genre</p>
+                </div>
+                
+                <div class="category-grid">
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h3 class="category-card__title">Fantasy</h3>
+                        <p class="category-card__count">834 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="category-card__title">Science Fiction</h3>
+                        <p class="category-card__count">621 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="category-card__title">Mystery</h3>
+                        <p class="category-card__count">578 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="category-card__title">Romance</h3>
+                        <p class="category-card__count">752 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="category-card__title">History</h3>
+                        <p class="category-card__count">423 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="category-card__title">Non-Fiction</h3>
+                        <p class="category-card__count">916 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-mask"></i>
+                        </div>
+                        <h3 class="category-card__title">Thriller</h3>
+                        <p class="category-card__count">512 Books</p>
+                    </a>
+                    
+                    <a href="#" class="category-card fade-in">
+                        <div class="category-card__icon">
+                            <i class="fas fa-feather-pointed"></i>
+                        </div>
+                        <h3 class="category-card__title">Poetry</h3>
+                        <p class="category-card__count">387 Books</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="new-releases">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">New Releases</h2>
+                    <p class="section-header__subtitle">Hot off the press and ready to read</p>
+                </div>
+                
+                <div class="book-grid">
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book5.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">Whispers in the Wind</h3>
+                            <p class="book-card__author">by Olivia Willow</p>
+                            <p class="book-card__desc">A young woman discovers her family's secret past in the hills of Appalachia.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Drama</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book6.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">Digital Frontiers</h3>
+                            <p class="book-card__author">by Marcus Chen</p>
+                            <p class="book-card__desc">An in-depth look at how technology is reshaping our society and future.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Technology</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book7.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">The Last Detective</h3>
+                            <p class="book-card__author">by Richard Blackstone</p>
+                            <p class="book-card__desc">In a world of AI, one human detective fights to solve the unsolvable case.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Crime</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card slide-up">
+                        <div class="book-card__cover">
+                            <img src="assets/images/book8.svg" alt="Book Cover" class="book-card__image">
+                            <div class="book-card__overlay">
+                                <button class="book-card__btn book-card__btn--preview">Preview</button>
+                                <button class="book-card__btn book-card__btn--download">Download</button>
+                            </div>
+                        </div>
+                        <div class="book-card__info">
+                            <h3 class="book-card__title">Culinary Journeys</h3>
+                            <p class="book-card__author">by Amelia Santos</p>
+                            <p class="book-card__desc">A mouthwatering tour of global cuisines and the stories behind them.</p>
+                            <div class="book-card__meta">
+                                <span class="book-card__genre">Cooking</span>
+                                <span class="book-card__rating"><i class="fas fa-star"></i> 4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter__content">
+                    <h2 class="newsletter__title">Stay Updated</h2>
+                    <p class="newsletter__text">Subscribe to our newsletter for the latest releases and reading recommendations.</p>
+                    <form class="newsletter__form">
+                        <input type="email" class="newsletter__input" placeholder="Your email address">
+                        <button type="submit" class="newsletter__button btn btn--primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <h2 class="logo__text">Literary<span>Haven</span></h2>
+                    <p class="footer__tagline">Your digital gateway to literary adventures</p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Explore</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Home</a></li>
+                            <li><a href="#" class="footer__link">Categories</a></li>
+                            <li><a href="#" class="footer__link">New Releases</a></li>
+                            <li><a href="#" class="footer__link">Top Rated</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">About</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Our Story</a></li>
+                            <li><a href="#" class="footer__link">Team</a></li>
+                            <li><a href="#" class="footer__link">Careers</a></li>
+                            <li><a href="#" class="footer__link">Press</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Support</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Contact Us</a></li>
+                            <li><a href="#" class="footer__link">FAQ</a></li>
+                            <li><a href="#" class="footer__link">Help Center</a></li>
+                            <li><a href="#" class="footer__link">Accessibility</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Legal</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Terms of Service</a></li>
+                            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+                            <li><a href="#" class="footer__link">Copyright</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer__social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-goodreads-g"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 Literary Haven. All rights reserved.</p>
+                <p class="footer__credit">Designed with <i class="fas fa-heart"></i> for book lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme toggle functionality without JavaScript -->
+    <script>
+        // No JavaScript as per requirements
+        // The theme toggle works using the :checked pseudo-class in CSS
+    </script>
+</body>
+</html>

@@ -1,0 +1,1714 @@
+/* CSS Custom Properties */
+:root {
+    --christmas-red: 220 80% 40%;
+    --christmas-green: 140 60% 35%;
+    --christmas-gold: 45 100% 50%;
+    --snow-white: 0 0% 100%;
+    --text-stroke-color: 200 20% 20%;
+    --background-dark: 220 30% 10%;
+    --background-light: 220 20% 95%;
+}
+
+/* Base Styles from provided CSS */
+html { 
+    scroll-behavior: smooth; 
+}
+
+a { 
+    color: rgba(255, 255, 255, 0.6); 
+    -webkit-text-stroke: 1px var(--text-stroke-color); 
+    text-decoration: none;
+}
+
+a:hover { 
+    color: rgba(255, 255, 255, 0.6); 
+    text-decoration: underline; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, hsl(var(--background-dark)), hsl(220 40% 15%));
+    color: white;
+    overflow-x: hidden;
+}
+
+#abc { 
+    width: 100%; 
+    background-size: cover; 
+    background: linear-gradient(45deg, hsl(var(--christmas-red)), hsl(var(--christmas-green)));
+    min-height: 100px;
+    position: relative;
+}
+
+nav { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    width: 100%; 
+    height: 80px;
+    line-height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: rgba(20, 20, 30, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled {
+    height: 65px;
+    line-height: 65px;
+    background: rgba(15, 15, 25, 0.98);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+nav ul li a {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    z-index: 1;
+    margin: 0 5px;
+    white-space: nowrap;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        hsl(var(--christmas-red)), 
+        hsl(var(--christmas-gold)), 
+        hsl(var(--christmas-green)));
+    transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+    border-radius: 25px;
+}
+
+nav ul li a:hover::before {
+    left: 0;
+}
+
+nav ul li a .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+}
+
+nav ul li a .actual-text {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+nav ul li a:hover .actual-text {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+nav ul li a:hover .hover-text {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+nav ul li a:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+/* Active navigation item indicator */
+nav ul li.active a {
+    background: linear-gradient(45deg, 
+        hsl(var(--christmas-red)), 
+        hsl(var(--christmas-gold)));
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+nav ul li.active a::before {
+    left: 0;
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, hsl(var(--christmas-gold)), hsl(var(--christmas-red)));
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Navigation brand section */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.neon h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        0 0 5px hsl(var(--christmas-gold)),
+        0 0 10px hsl(var(--christmas-gold)),
+        0 0 15px hsl(var(--christmas-gold)),
+        0 0 20px hsl(var(--christmas-gold));
+    animation: neonGlow 2s ease-in-out infinite alternate;
+}
+
+.neon h1 span {
+    color: hsl(var(--christmas-red));
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 
+            0 0 5px hsl(var(--christmas-gold)),
+            0 0 10px hsl(var(--christmas-gold)),
+            0 0 15px hsl(var(--christmas-gold)),
+            0 0 20px hsl(var(--christmas-gold));
+    }
+    to {
+        text-shadow: 
+            0 0 10px hsl(var(--christmas-gold)),
+            0 0 20px hsl(var(--christmas-gold)),
+            0 0 30px hsl(var(--christmas-gold)),
+            0 0 40px hsl(var(--christmas-gold));
+    }
+}
+
+/* Kashmir-Style Snowfall Animation */
+.snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Multiple layers of snow for Kashmir effect */
+.snowfall::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 50px);
+    background: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(3px 3px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 60px 100px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(4px 4px at 10px 150px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(3px 3px at 80px 180px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 120px 200px, rgba(255, 255, 255, 0.7), transparent);
+    background-size: 150px 200px, 200px 250px, 180px 220px, 160px 190px, 220px 280px, 170px 230px, 190px 240px;
+    animation: kashmirSnow1 15s linear infinite;
+}
+
+.snowfall::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 100px);
+    background: 
+        radial-gradient(3px 3px at 30px 50px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 70px 90px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(4px 4px at 110px 120px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(3px 3px at 130px 210px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 15px 240px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(5px 5px at 95px 280px, rgba(255, 255, 255, 0.4), transparent);
+    background-size: 180px 240px, 210px 270px, 160px 200px, 200px 260px, 190px 250px, 220px 290px, 170px 210px;
+    animation: kashmirSnow2 20s linear infinite;
+}
+
+/* Add individual snowflakes for more detail */
+body::before {
+    content: '❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅ ❄ ❅';
+    position: fixed;
+    top: -100px;
+    left: -50px;
+    width: 110%;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 80px;
+    line-height: 120px;
+    animation: kashmirSnowFlakes 25s linear infinite;
+    pointer-events: none;
+    z-index: 3;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Kashmir-style snow animations */
+@keyframes kashmirSnow1 {
+    0% {
+        transform: translateY(-200px) translateX(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 200px)) translateX(100px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes kashmirSnow2 {
+    0% {
+        transform: translateY(-250px) translateX(30px) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 250px)) translateX(-80px) rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes kashmirSnowFlakes {
+    0% {
+        transform: translateY(-150px) translateX(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(calc(100vh + 150px)) translateX(200px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Heavy snowfall effect for special occasions */
+.heavy-snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: 
+        radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 50% 60%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(3px 3px at 70% 80%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 90% 10%, rgba(255, 255, 255, 0.8), transparent);
+    background-size: 100px 100px, 150px 150px, 120px 120px, 180px 180px, 140px 140px;
+    animation: heavyKashmirSnow 12s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes heavyKashmirSnow {
+    0% {
+        background-position: 0 -100px, 0 -150px, 0 -120px, 0 -180px, 0 -140px;
+    }
+    100% {
+        background-position: 0 calc(100vh + 100px), 0 calc(100vh + 150px), 0 calc(100vh + 120px), 0 calc(100vh + 180px), 0 calc(100vh + 140px);
+    }
+}
+
+/* Enhanced Santa Animation */
+.santa-container {
+    position: fixed;
+    top: 15%;
+    left: -200px;
+    z-index: 999;
+    pointer-events: none;
+    animation: moveSanta 20s linear infinite;
+}
+
+.santa-animation {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    animation: santaBob 2s ease-in-out infinite;
+}
+
+@keyframes moveSanta {
+    0% { 
+        left: -200px; 
+        top: 15%;
+    }
+    25% {
+        left: 25vw;
+        top: 10%;
+    }
+    50% {
+        left: 50vw;
+        top: 8%;
+    }
+    75% {
+        left: 75vw;
+        top: 12%;
+    }
+    100% { 
+        left: calc(100vw + 100px); 
+        top: 15%;
+    }
+}
+
+@keyframes santaBob {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% { 
+        transform: translateY(-10px) rotate(2deg) scale(1.05);
+    }
+}
+
+/* Hero Carousel Section */
+.hero-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.hero-slide-1 {
+    background: linear-gradient(135deg, 
+        hsl(var(--background-dark)), 
+        hsl(var(--christmas-red)), 
+        hsl(var(--christmas-green)));
+}
+
+.hero-slide-2 {
+    background: linear-gradient(135deg, 
+        hsl(var(--background-dark)), 
+        hsl(140 50% 25%), 
+        hsl(45 80% 40%));
+}
+
+.hero-slide-3 {
+    background: linear-gradient(135deg, 
+        hsl(var(--background-dark)), 
+        hsl(220 60% 35%), 
+        hsl(280 50% 30%));
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    bottom: 30px;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: hsl(var(--christmas-gold));
+    transform: scale(1.2);
+}
+
+/* Slide-specific animations */
+.classic-books,
+.digital-elements {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.classic-book,
+.digital-device,
+.digital-book,
+.digital-cloud {
+    font-size: 4rem;
+    animation: slideFloat 4s ease-in-out infinite;
+}
+
+.classic-2,
+.digital-book {
+    animation-delay: 0.7s;
+}
+
+.classic-3,
+.digital-cloud {
+    animation-delay: 1.4s;
+}
+
+@keyframes slideFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    33% { 
+        transform: translateY(-15px) rotate(3deg) scale(1.05);
+    }
+    66% { 
+        transform: translateY(-8px) rotate(-2deg) scale(0.98);
+    }
+}
+
+.hero-content {
+    z-index: 10;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.festive-text {
+    background: linear-gradient(45deg, hsl(var(--christmas-gold)), hsl(var(--christmas-red)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: festiveGlow 3s ease-in-out infinite;
+}
+
+@keyframes festiveGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+
+.btn-christmas {
+    background: linear-gradient(45deg, hsl(var(--christmas-red)), hsl(var(--christmas-green)));
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-christmas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+    color: white;
+}
+
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* Book Stack Animation */
+.book-stack {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.book {
+    font-size: 4rem;
+    animation: bookFloat 3s ease-in-out infinite;
+}
+
+.book-2 {
+    animation-delay: 0.5s;
+}
+
+.book-3 {
+    animation-delay: 1s;
+}
+
+@keyframes bookFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Section Styles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Featured Books Section */
+.featured-books {
+    background: linear-gradient(135deg, hsl(var(--background-dark)), hsl(220 35% 12%));
+    position: relative;
+}
+
+.book-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: hsl(var(--christmas-gold));
+}
+
+.book-cover {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.05));
+}
+
+.text-christmas {
+    color: hsl(var(--christmas-red)) !important;
+}
+
+.text-purple {
+    color: #8B5CF6 !important;
+}
+
+/* Categories Section */
+.categories-section {
+    background: linear-gradient(135deg, hsl(220 35% 12%), hsl(var(--background-dark)));
+}
+
+.category-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: hsl(var(--christmas-gold));
+}
+
+.category-icon {
+    margin-bottom: 1rem;
+}
+
+/* Authors Section */
+.authors-section {
+    background: linear-gradient(135deg, hsl(var(--background-dark)), hsl(220 35% 12%));
+}
+
+.author-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: hsl(var(--christmas-gold));
+}
+
+.author-avatar {
+    margin-bottom: 1rem;
+}
+
+/* About Section */
+.about-section {
+    background: linear-gradient(135deg, hsl(220 35% 12%), hsl(var(--background-dark)));
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsl(var(--christmas-gold));
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Christmas Tree Animation */
+.christmas-tree {
+    position: relative;
+    text-align: center;
+    animation: treeGlow 4s ease-in-out infinite;
+}
+
+.tree-lights {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+}
+
+.light {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.light-1 { top: 20%; left: 45%; animation-delay: 0s; }
+.light-2 { top: 40%; right: 40%; animation-delay: 0.5s; }
+.light-3 { top: 60%; left: 35%; animation-delay: 1s; }
+.light-4 { top: 80%; right: 30%; animation-delay: 1.5s; }
+
+@keyframes treeGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2) drop-shadow(0 0 20px rgba(0, 255, 0, 0.5)); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Reviews Section */
+.reviews-section {
+    background: linear-gradient(135deg, hsl(220 35% 12%), hsl(var(--background-dark)));
+    position: relative;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: hsl(var(--christmas-gold));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 4rem;
+    color: hsl(var(--christmas-gold));
+    opacity: 0.3;
+    font-family: serif;
+}
+
+.review-header {
+    margin-bottom: 1rem;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviewer-avatar {
+    flex-shrink: 0;
+}
+
+.reviewer-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.review-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.review-rating .fas {
+    font-size: 0.9rem;
+}
+
+.review-body {
+    position: relative;
+    z-index: 1;
+}
+
+.review-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.review-date {
+    font-size: 0.85rem;
+}
+
+.review-summary {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-stat {
+    padding: 1rem;
+}
+
+.summary-stat .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: hsl(var(--christmas-gold));
+    margin-bottom: 0.5rem;
+}
+
+.summary-stat .stat-stars {
+    margin: 0.5rem 0;
+}
+
+.summary-stat .stat-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-purple {
+    color: #8B5CF6 !important;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(45deg, hsl(var(--christmas-red)), hsl(var(--christmas-green)));
+    position: relative;
+}
+
+.newsletter-form .form-control {
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px 0 0 50px;
+}
+
+.newsletter-form .btn {
+    border-radius: 0 50px 50px 0;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    background: hsl(var(--background-dark));
+    border: none;
+}
+
+/* Enhanced Footer */
+.footer {
+    background: hsl(var(--background-dark));
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-logo {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.christmas-gradient-text {
+    background: linear-gradient(45deg, hsl(var(--christmas-gold)), hsl(var(--christmas-red)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.footer-heading {
+    color: hsl(var(--christmas-gold));
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+.footer-links a:hover {
+    color: hsl(var(--christmas-gold));
+    transform: translateX(5px);
+}
+
+.footer-links a i {
+    color: hsl(var(--christmas-gold));
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover i {
+    opacity: 1;
+}
+
+.social-links .social-link {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.social-link:hover {
+    background: hsl(var(--christmas-gold));
+    transform: translateY(-5px) scale(1.1);
+    color: hsl(var(--background-dark));
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.contact-info {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-item i {
+    color: hsl(var(--christmas-gold));
+    margin-top: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.contact-item a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: hsl(var(--christmas-gold));
+}
+
+.footer-newsletter .input-group {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.footer-newsletter .form-control {
+    border: none;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 25px 0 0 25px;
+}
+
+.footer-newsletter .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-newsletter .btn {
+    border-radius: 0 25px 25px 0;
+}
+
+.footer-stats .stat-item {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.text-christmas {
+    color: hsl(var(--christmas-gold)) !important;
+}
+
+.festive-footer-text .christmas-greeting {
+    background: linear-gradient(45deg, hsl(var(--christmas-gold)), hsl(var(--christmas-red)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+/* Footer Decorations */
+.footer-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.footer-snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(2px 2px at 10% 20%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 80% 60%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(3px 3px at 40% 80%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 200px 200px, 150px 150px, 250px 250px, 180px 180px;
+    animation: footerSnowDrift 20s linear infinite;
+}
+
+@keyframes footerSnowDrift {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 200px 200px, -150px 150px, 250px 250px, -180px 180px;
+    }
+}
+
+.footer-lights {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2;
+}
+
+.light-decoration {
+    font-size: 1.5rem;
+    animation: footerTwinkle 2s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.light-decoration:nth-child(2n) {
+    animation-delay: 0.5s;
+}
+
+.light-decoration:nth-child(3n) {
+    animation-delay: 1s;
+}
+
+@keyframes footerTwinkle {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Ensure footer content is above decorations */
+.footer .container {
+    position: relative;
+    z-index: 3;
+}
+
+/* Enhanced Responsive Design */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .santa-animation {
+        width: 180px;
+    }
+}
+
+/* Desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablet (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+    
+    nav ul {
+        gap: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .neon h1 {
+        font-size: 2.2rem;
+    }
+    
+    .santa-animation {
+        width: 120px;
+    }
+    
+    .book {
+        font-size: 3rem;
+    }
+    
+    .review-card {
+        margin-bottom: 2rem;
+    }
+    
+    .summary-stat .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    nav {
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background: rgba(15, 15, 25, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 0;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 1rem 0;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .neon h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .neon h1 {
+        font-size: 1.8rem;
+    }
+    
+    .santa-animation {
+        width: 100px;
+    }
+    
+    .book {
+        font-size: 2.5rem;
+    }
+    
+    .category-card,
+    .author-card,
+    .book-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .review-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .reviewer-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .summary-stat .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .about-stats {
+        margin-top: 2rem;
+    }
+    
+    .about-stats .col-4 {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+    body {
+        font-size: 14px;
+        padding-top: 80px;
+    }
+    
+    nav {
+        height: 70px;
+        padding: 0 1rem;
+    }
+    
+    nav.scrolled {
+        height: 60px;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(15, 15, 25, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 0;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 1rem 0;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .nav-item a {
+        padding: 1rem 2rem;
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        border-radius: 25px;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .neon h1 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .santa-animation {
+        width: 80px;
+    }
+    
+    .book {
+        font-size: 2rem;
+    }
+    
+    .book-card,
+    .category-card,
+    .author-card,
+    .review-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .book-cover {
+        height: 150px;
+    }
+    
+    .category-icon i,
+    .author-avatar i {
+        font-size: 2rem !important;
+    }
+    
+    .reviewer-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .reviewer-avatar i {
+        font-size: 2rem !important;
+    }
+    
+    .review-text {
+        font-size: 0.9rem;
+    }
+    
+    .summary-stat {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .summary-stat .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .summary-stat .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .about-stats .col-4 {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem !important;
+    }
+    
+    .newsletter-form .input-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-form .form-control,
+    .newsletter-form .btn {
+        border-radius: 25px;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+    
+    .footer .row > div {
+        margin-bottom: 2rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Enhanced snowfall for mobile */
+    .snowfall::before,
+    .snowfall::after {
+        font-size: 16px;
+        letter-spacing: 30px;
+        line-height: 60px;
+    }
+    
+    /* Christmas tree mobile adjustments */
+    .christmas-tree i {
+        font-size: 4rem !important;
+    }
+    
+    .light {
+        font-size: 1rem;
+    }
+}
+
+/* Ultra Small Mobile (up to 380px) */
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .neon h1 {
+        font-size: 1.25rem;
+    }
+    
+    .santa-animation {
+        width: 70px;
+    }
+    
+    .book {
+        font-size: 1.5rem;
+    }
+    
+    .summary-stat .stat-number {
+        font-size: 1.25rem;
+    }
+    
+    nav ul li a {
+        font-size: 13px;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .hero-buttons .btn {
+        padding: 0.75rem 1rem;
+        font-size: 13px;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 1rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .santa-animation {
+        width: 90px;
+    }
+    
+    nav {
+        padding: 0.5rem;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    nav ul li a {
+        font-size: 12px;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .snowfall,
+    .santa-container,
+    .newsletter-section,
+    .footer {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero-section,
+    .featured-books,
+    .categories-section,
+    .authors-section,
+    .about-section,
+    .reviews-section {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .section-title,
+    .hero-title {
+        color: black !important;
+    }
+}
+
+/* Additional Christmas Effects */
+.festive-border {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, 
+        hsl(var(--christmas-red)), 
+        hsl(var(--christmas-gold)), 
+        hsl(var(--christmas-green))) 1;
+}
+
+.christmas-gradient {
+    background: linear-gradient(45deg, 
+        hsl(var(--christmas-red)), 
+        hsl(var(--christmas-gold)), 
+        hsl(var(--christmas-green)));
+}
+
+/* Smooth scrolling enhancements */
+section {
+    scroll-margin-top: 100px;
+}
+
+/* Loading animation for images */
+.loading-placeholder {
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.1) 25%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

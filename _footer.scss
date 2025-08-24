@@ -1,0 +1,28 @@
+// Footer
+footer {
+  background: darken($primary, 10%);
+  text-align: center;
+  padding: 2rem 1rem;
+  
+  p {
+    margin-bottom: 0.5rem;
+    color: rgba($light, 0.7);
+  }
+  
+  .social {
+    margin-top: 1rem;
+    
+    a {
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      color: $accent;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: lighten($accent, 20%);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}

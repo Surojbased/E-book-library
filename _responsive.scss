@@ -1,0 +1,150 @@
+// Header Responsive Styles
+.site-header {
+  @include respond-to(lg) {
+    .container {
+      flex-direction: column;
+    }
+    
+    .logo {
+      margin-bottom: $spacing-md;
+    }
+    
+    .main-nav {
+      order: 3; // Move navigation below search bar
+      width: 100%;
+      margin-top: $spacing-md;
+      
+      ul {
+        justify-content: center;
+      }
+    }
+    
+    .search-bar {
+      width: 100%;
+      order: 2;
+    }
+  }
+  
+  @include respond-to(md) {
+    .main-nav ul {
+      flex-wrap: wrap;
+      
+      li {
+        margin-right: $spacing-sm;
+        margin-bottom: $spacing-sm;
+        
+        a {
+          padding: $spacing-xs $spacing-sm;
+        }
+      }
+    }
+  }
+  
+  @include respond-to(sm) {
+    .container {
+      padding: $spacing-md;
+    }
+    
+    .logo {
+      h1 {
+        font-size: $font-size-xl;
+      }
+      
+      .tagline {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+// Hero Section Responsive
+.hero {
+  @include respond-to(md) {
+    padding: $spacing-xl 0;
+    
+    h2 {
+      font-size: $font-size-xxl;
+    }
+    
+    p {
+      font-size: $font-size-base;
+    }
+  }
+  
+  @include respond-to(sm) {
+    padding: $spacing-lg 0;
+    
+    h2 {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+// Book Cards Responsive
+.book-card {
+  @include respond-to(md) {
+    .book-cover {
+      height: 180px;
+      
+      .book-front .book-title {
+        font-size: $font-size-large;
+      }
+    }
+    
+    .book-info {
+      h3 {
+        font-size: $font-size-base;
+      }
+      
+      .book-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        
+        > span {
+          margin-bottom: $spacing-xs;
+        }
+      }
+    }
+  }
+}
+
+// Footer Responsive
+.site-footer {
+  @include respond-to(lg) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-xl;
+    }
+  }
+  
+  @include respond-to(md) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      
+      .footer-links ul {
+        justify-content: center;
+      }
+      
+      .footer-newsletter form {
+        margin: 0 auto;
+        max-width: 100%;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// Section Titles Responsive
+.section-title {
+  @include respond-to(md) {
+    font-size: $font-size-xl;
+  }
+  
+  @include respond-to(sm) {
+    font-size: $font-size-large;
+  }
+}

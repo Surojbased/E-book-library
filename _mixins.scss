@@ -1,0 +1,154 @@
+// Media Queries
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// Flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Grid
+@mixin grid($columns: 1, $gap: $spacing-md) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Typography
+@mixin heading($size: $font-size-xl, $weight: $font-weight-bold, $family: $font-family-heading) {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line-height-heading;
+  margin-bottom: $spacing-md;
+}
+
+@mixin paragraph($size: $font-size-base, $weight: $font-weight-regular) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height-base;
+  margin-bottom: $spacing-md;
+}
+
+// Buttons
+@mixin button($bg-color: $primary-color, $text-color: $light-color, $hover-bg: darken($primary-color, 10%)) {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius-pill;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transition-speed-base $transition-timing, 
+              transform $transition-speed-base $transition-timing, 
+              box-shadow $transition-speed-base $transition-timing;
+  
+  &:hover, &:focus {
+    background-color: $hover-bg;
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-md;
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+// Cards
+@mixin card($padding: $spacing-lg, $bg-color: $light-color, $shadow: $box-shadow-md) {
+  background-color: $bg-color;
+  border-radius: $border-radius-md;
+  padding: $padding;
+  box-shadow: $shadow;
+  transition: transform $transition-speed-base $transition-timing, 
+              box-shadow $transition-speed-base $transition-timing;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-hover;
+  }
+}
+
+// Animation
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($name, $duration: 1s, $timing-function: ease, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: forwards) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration-count;
+  animation-direction: $direction;
+  animation-fill-mode: $fill-mode;
+}
+
+// Container
+@mixin container {
+  max-width: $container-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+}
+
+// Truncate Text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Focus Styles
+@mixin focus-outline {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}

@@ -1,0 +1,273 @@
+.books-grid {
+  @include grid(3, $spacing-xl);
+  margin-top: $spacing-xl;
+  
+  @include respond-to(lg) {
+    @include grid(2, $spacing-lg);
+  }
+  
+  @include respond-to(md) {
+    @include grid(2, $spacing-md);
+  }
+  
+  @include respond-to(sm) {
+    @include grid(1, $spacing-md);
+  }
+}
+
+// Book Card Styles
+.book-card {
+  @include card($spacing-md, $light-color, $box-shadow-md);
+  position: relative;
+  overflow: hidden;
+  transition: transform $transition-speed-base $transition-timing,
+              box-shadow $transition-speed-base $transition-timing;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $box-shadow-hover;
+    
+    .book-card-inner {
+      transform: translateZ(20px) rotateY(5deg);
+    }
+    
+    .book-cover {
+      transform: translateX(-10px) rotateY(-15deg);
+      
+      .book-spine {
+        width: 30px;
+      }
+    }
+  }
+  
+  .book-card-inner {
+    @include flex(column, flex-start, stretch);
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform $transition-speed-slow $transition-timing;
+  }
+  
+  // Book Cover
+  .book-cover {
+    position: relative;
+    height: 220px;
+    margin-bottom: $spacing-md;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform $transition-speed-slow $transition-timing;
+    
+    .book-spine {
+      position: absolute;
+      left: 0;
+      top: 10%;
+      width: 20px;
+      height: 80%;
+      background: linear-gradient(to right, darken($primary-color, 20%), $primary-color);
+      transform: rotateY(90deg);
+      transform-origin: left;
+      transition: width $transition-speed-slow $transition-timing;
+      border-radius: 2px 0 0 2px;
+    }
+    
+    .book-front {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, $primary-color, lighten($primary-color, 20%));
+      border-radius: $border-radius-md;
+      padding: $spacing-lg;
+      @include flex(column, center, center);
+      color: $light-color;
+      box-shadow: $box-shadow-md;
+      transform-origin: left;
+      transition: transform $transition-speed-slow $transition-timing;
+      
+      .book-title {
+        font-family: $font-family-heading;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-xl;
+        text-align: center;
+        margin-bottom: $spacing-md;
+      }
+      
+      .book-author {
+        font-weight: $font-weight-regular;
+        font-style: italic;
+      }
+    }
+  }
+  
+  // Book Info
+  .book-info {
+    padding: $spacing-md;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+    h3 {
+      font-family: $font-family-heading;
+      font-size: $font-size-large;
+      font-weight: $font-weight-semibold;
+      color: $dark-color;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .author {
+      font-size: $font-size-base;
+      font-weight: $font-weight-medium;
+      color: $text-light;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .book-meta {
+      @include flex(row, space-between, center, wrap);
+      margin-bottom: $spacing-md;
+      font-size: $font-size-small;
+      color: $text-light;
+      
+      .year, .genre {
+        background-color: rgba($primary-color, 0.1);
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $border-radius-pill;
+      }
+      
+      .rating {
+        color: $secondary-color;
+      }
+    }
+    
+    .description {
+      font-size: $font-size-base;
+      line-height: $line-height-base;
+      color: $text-color;
+      margin-bottom: $spacing-md;
+    }
+    
+    // Read More Toggle
+    .read-more-toggle {
+      display: none;
+      
+      &:checked {
+        & ~ .extra-content {
+          max-height: 1000px;
+          opacity: 1;
+          margin-top: $spacing-md;
+          margin-bottom: $spacing-md;
+        }
+        
+        & ~ .read-more-btn {
+          &::after {
+            content: "Read Less";
+          }
+          
+          &::before {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+    
+    .extra-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all $transition-speed-base $transition-timing;
+      
+      p {
+        margin-bottom: $spacing-md;
+      }
+      
+      .book-details {
+        background-color: rgba($primary-color, 0.05);
+        padding: $spacing-md;
+        border-radius: $border-radius-md;
+        
+        .detail {
+          display: flex;
+          margin-bottom: $spacing-xs;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          span {
+            font-weight: $font-weight-semibold;
+            margin-right: $spacing-sm;
+          }
+        }
+      }
+    }
+    
+    .read-more-btn {
+      @include button(transparent, $primary-color, rgba($primary-color, 0.1));
+      margin-top: auto;
+      align-self: flex-start;
+      padding: $spacing-xs $spacing-md;
+      position: relative;
+      
+      &::after {
+        content: "Read More";
+      }
+      
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid $primary-color;
+        border-bottom: 2px solid $primary-color;
+        margin-right: $spacing-xs;
+        transform: rotate(45deg);
+        transition: transform $transition-speed-base $transition-timing;
+      }
+    }
+  }
+}
+
+// Category Cards
+.category-grid {
+  @include grid(3, $spacing-lg);
+  margin-top: $spacing-xl;
+  
+  @include respond-to(md) {
+    @include grid(2, $spacing-md);
+  }
+  
+  @include respond-to(sm) {
+    @include grid(1, $spacing-md);
+  }
+  
+  .category-card {
+    @include card($spacing-lg, $light-color, $box-shadow-md);
+    text-align: center;
+    @include flex(column, center, center);
+    
+    i {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: $spacing-md;
+    }
+    
+    h3 {
+      font-family: $font-family-heading;
+      font-size: $font-size-large;
+      color: $dark-color;
+      margin-bottom: $spacing-sm;
+    }
+    
+    p {
+      color: $text-light;
+      font-size: $font-size-base;
+    }
+    
+    &:hover {
+      i {
+        transform: scale(1.1);
+        color: $secondary-color;
+      }
+    }
+  }
+}

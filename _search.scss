@@ -1,0 +1,96 @@
+// Contact Section
+.contact {
+  padding: 4rem 1rem;
+  background: $primary-light;
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: $light;
+  }
+  
+  .contact-form {
+    .form-group {
+      margin-bottom: 1.5rem;
+      
+      input, textarea {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        color: $light;
+        font-family: $font;
+        
+        &::placeholder {
+          color: rgba($light, 0.6);
+        }
+        
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px $accent;
+        }
+      }
+      
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+    }
+    
+    .submit-btn {
+      background: $accent;
+      color: $primary;
+      border: none;
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      font-family: $font;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      
+      &:hover {
+        background: $accent-light;
+        transform: translateY(-2px);
+      }
+    }
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      
+      i {
+        color: $accent;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+      
+      p {
+        color: $light;
+        font-size: 1rem;
+      }
+    }
+  }
+}

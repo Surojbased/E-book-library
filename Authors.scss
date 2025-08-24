@@ -1,0 +1,59 @@
+// Main SCSS file that imports all partials
+
+// Import partials
+@import "variables";
+@import "mixins";
+@import "reset";
+@import "layout";
+@import "components";
+@import "animations";
+@import "responsive";
+
+// Base styles
+body {
+  font-family: $font-primary;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $text-primary;
+  background-color: $background-primary;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+:root {
+  // For theme toggling
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --background-primary: #{$background-primary};
+  --background-secondary: #{$background-secondary};
+  --accent-primary: #{$accent-primary};
+  --accent-secondary: #{$accent-secondary};
+  --card-background: #{$card-background};
+  --card-shadow: #{$card-shadow};
+}
+
+// Dark mode toggle functionality
+.theme-toggle:checked ~ body {
+  --text-primary: #{$dark-text-primary};
+  --text-secondary: #{$dark-text-secondary};
+  --background-primary: #{$dark-background-primary};
+  --background-secondary: #{$dark-background-secondary};
+  --card-background: #{$dark-card-background};
+  --card-shadow: #{$dark-card-shadow};
+}
+
+/* Using the variables */
+body {
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Import responsive styles last to override as needed
+@import "responsive";

@@ -1,0 +1,27 @@
+<svg width="250" height="350" viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="250" height="350" fill="#636e72" />
+  <rect x="20" y="20" width="210" height="310" fill="#b2bec3" rx="5" />
+  <text x="125" y="175" font-family="Arial, sans-serif" font-size="24" fill="#2d3436" text-anchor="middle" dominant-baseline="middle">Digital Frontiers</text>
+  <text x="125" y="210" font-family="Arial, sans-serif" font-size="14" fill="#2d3436" text-anchor="middle" dominant-baseline="middle">by Marcus Chen</text>
+  <g transform="translate(125, 100)">
+    <rect x="-25" y="-25" width="10" height="10" fill="#2d3436" opacity="0.7" />
+    <rect x="-10" y="-25" width="10" height="10" fill="#2d3436" opacity="0.5" />
+    <rect x="5" y="-25" width="10" height="10" fill="#2d3436" opacity="0.7" />
+    <rect x="20" y="-25" width="10" height="10" fill="#2d3436" opacity="0.3" />
+    
+    <rect x="-25" y="-10" width="10" height="10" fill="#2d3436" opacity="0.3" />
+    <rect x="-10" y="-10" width="10" height="10" fill="#2d3436" opacity="0.7" />
+    <rect x="5" y="-10" width="10" height="10" fill="#2d3436" opacity="0.5" />
+    <rect x="20" y="-10" width="10" height="10" fill="#2d3436" opacity="0.7" />
+    
+    <rect x="-25" y="5" width="10" height="10" fill="#2d3436" opacity="0.5" />
+    <rect x="-10" y="5" width="10" height="10" fill="#2d3436" opacity="0.3" />
+    <rect x="5" y="5" width="10" height="10" fill="#2d3436" opacity="0.7" />
+    <rect x="20" y="5" width="10" height="10" fill="#2d3436" opacity="0.5" />
+    
+    <rect x="-25" y="20" width="10" height="10" fill="#2d3436" opacity="0.7" />
+    <rect x="-10" y="20" width="10" height="10" fill="#2d3436" opacity="0.5" />
+    <rect x="5" y="20" width="10" height="10" fill="#2d3436" opacity="0.3" />
+    <rect x="20" y="20" width="10" height="10" fill="#2d3436" opacity="0.7" />
+  </g>
+</svg>

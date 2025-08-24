@@ -1,0 +1,65 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Santa's sleigh base -->
+  <path d="M20 80 L100 80 Q110 80 110 70 L110 60 Q110 50 100 50 L30 50 Q20 50 20 60 Z" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  
+  <!-- Santa's body -->
+  <ellipse cx="60" cy="55" rx="15" ry="20" fill="#DC143C"/>
+  
+  <!-- Santa's head -->
+  <circle cx="60" cy="35" r="12" fill="#FDBCB4"/>
+  
+  <!-- Santa's hat -->
+  <path d="M48 30 Q48 20 55 15 Q65 10 75 20 Q75 25 70 30 Q65 35 55 35 Z" fill="#DC143C"/>
+  <circle cx="70" cy="22" r="3" fill="white"/>
+  
+  <!-- Santa's beard -->
+  <path d="M50 40 Q60 50 70 40 Q65 45 60 45 Q55 45 50 40" fill="white"/>
+  
+  <!-- Santa's eyes -->
+  <circle cx="57" cy="32" r="1.5" fill="black"/>
+  <circle cx="63" cy="32" r="1.5" fill="black"/>
+  
+  <!-- Santa's nose -->
+  <circle cx="60" cy="37" r="1" fill="#FF6B6B"/>
+  
+  <!-- Santa's arms -->
+  <ellipse cx="45" cy="50" rx="5" ry="8" fill="#DC143C" transform="rotate(-30 45 50)"/>
+  <ellipse cx="75" cy="50" rx="5" ry="8" fill="#DC143C" transform="rotate(30 75 50)"/>
+  
+  <!-- Santa's hands -->
+  <circle cx="40" cy="55" r="3" fill="#FDBCB4"/>
+  <circle cx="80" cy="55" r="3" fill="#FDBCB4"/>
+  
+  <!-- Reins -->
+  <path d="M80 55 Q90 50 95 45" stroke="#8B4513" stroke-width="2" fill="none"/>
+  <path d="M80 57 Q90 52 95 47" stroke="#8B4513" stroke-width="2" fill="none"/>
+  
+  <!-- Reindeer silhouette in distance -->
+  <g transform="translate(95, 40) scale(0.3)">
+    <ellipse cx="0" cy="10" rx="8" ry="5" fill="#654321"/>
+    <circle cx="-3" cy="3" r="3" fill="#654321"/>
+    <path d="M-8 0 L-6 -5 M-3 -2 L-1 -7 M1 -2 L3 -7 M6 0 L8 -5" stroke="#654321" stroke-width="1.5"/>
+    <ellipse cx="-10" cy="15" rx="2" ry="4" fill="#654321"/>
+    <ellipse cx="8" cy="15" rx="2" ry="4" fill="#654321"/>
+    <ellipse cx="-8" cy="25" rx="1.5" ry="3" fill="#654321"/>
+    <ellipse cx="6" cy="25" rx="1.5" ry="3" fill="#654321"/>
+  </g>
+  
+  <!-- Sparkles and magic -->
+  <g opacity="0.8">
+    <text x="25" y="25" font-family="Arial" font-size="12" fill="#FFD700">✨</text>
+    <text x="85" y="30" font-family="Arial" font-size="8" fill="#FFD700">⭐</text>
+    <text x="35" y="70" font-family="Arial" font-size="10" fill="#FFD700">✨</text>
+    <text x="90" y="75" font-family="Arial" font-size="6" fill="#FFD700">⭐</text>
+  </g>
+  
+  <!-- Motion lines -->
+  <g opacity="0.5">
+    <path d="M15 85 L5 85" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <path d="M15 75 L8 75" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M15 65 L10 65" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Animation elements -->
+  <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="2s" repeatCount="indefinite"/>
+</svg>

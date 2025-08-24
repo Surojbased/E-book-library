@@ -1,0 +1,75 @@
+// Colors
+$primary-color: #4a6fa5;
+$secondary-color: #ff8264;
+$tertiary-color: #72cc9b;
+$background-color: #f9f7f4;
+$dark-color: #2d3748;
+$light-color: #ffffff;
+$text-color: #333333;
+$text-light: #666666;
+$border-color: #e1e1e1;
+
+// Typography
+$font-family-primary: 'Montserrat', sans-serif;
+$font-family-heading: 'Playfair Display', serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+$font-size-huge: 48px;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$line-height-base: 1.6;
+$line-height-heading: 1.2;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-huge: 64px;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-pill: 50px;
+$border-radius-circle: 50%;
+
+// Box Shadow
+$box-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+$box-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);
+$box-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+// Transitions
+$transition-speed-fast: 0.15s;
+$transition-speed-base: 0.3s;
+$transition-speed-slow: 0.5s;
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Container
+$container-max-width: 1200px;
+$container-padding: $spacing-md;
+
+// Breakpoints
+$breakpoint-xs: 375px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;

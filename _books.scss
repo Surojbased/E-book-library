@@ -1,0 +1,251 @@
+// Categories
+.categories {
+  padding: 3rem 1rem;
+  background: $primary-light;
+  text-align: center;
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: $light;
+  }
+  
+  .filter-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: $light;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: $font;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      &.active {
+        background: $accent;
+        color: $primary;
+        border-color: $accent;
+      }
+    }
+  }
+}
+
+// Books
+.books {
+  padding: 3rem 1rem 5rem;
+  background: $primary;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .book-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: popUp 1s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      
+      .book-cover {
+        transform: translateY(-5px) rotateX(10deg);
+      }
+    }
+    
+    .book-cover {
+      position: relative;
+      height: 250px;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #4a0072, #320054);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease;
+      perspective: 1000px;
+      
+      .book-spine {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+        bottom: 20px;
+        width: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 0 3px 3px 0;
+      }
+      
+      .book-front {
+        background: rgba($accent, 0.15);
+        border: 2px solid rgba($accent, 0.3);
+        height: 80%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 5px;
+        position: relative;
+        
+        h3 {
+          font-size: 1.2rem;
+          margin: 0 0 0.5rem 0;
+          color: $light;
+        }
+        
+        .author {
+          font-size: 0.9rem;
+          margin: 0;
+          color: $accent;
+          font-style: italic;
+          opacity: 0.8;
+        }
+      }
+    }
+    
+    .book-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      
+      .book-details {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        
+        .genre {
+          font-size: 0.8rem;
+          padding: 0.2rem 0.8rem;
+          background: rgba($accent, 0.1);
+          border-radius: 50px;
+          color: $accent;
+        }
+        
+        .status {
+          font-size: 0.8rem;
+          font-weight: 500;
+          
+          &.available {
+            color: $available;
+          }
+          
+          &.borrowed {
+            color: $borrowed;
+          }
+        }
+      }
+      
+      .borrow-btn {
+        margin-top: auto;
+        background: $accent;
+        color: $primary;
+        border: none;
+        border-radius: 5px;
+        padding: 0.8rem;
+        font-family: $font;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: $accent-light;
+          transform: translateY(-2px);
+        }
+        
+        &.disabled {
+          background: #cccccc;
+          cursor: not-allowed;
+          
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Services
+.services {
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #3a005a, #57009f);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: $light;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    i {
+      font-size: 2.5rem;
+      color: $accent;
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: $light;
+    }
+    
+    p {
+      font-size: 0.9rem;
+      color: rgba($light, 0.8);
+    }
+  }
+}

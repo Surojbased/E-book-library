@@ -1,0 +1,156 @@
+/* Typography Styles */
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  margin-bottom: $spacing-xl;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  margin-bottom: $spacing-lg;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  margin-bottom: $spacing-md;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+  margin-bottom: $spacing-md;
+}
+
+h5 {
+  font-size: $font-size-lg;
+  margin-bottom: $spacing-sm;
+}
+
+h6 {
+  font-size: $font-size-base;
+  margin-bottom: $spacing-sm;
+}
+
+// Paragraphs
+p {
+  margin-bottom: $spacing-md;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $color-primary;
+  transition: color $transition-short;
+  
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+// Text utilities
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-medium {
+  font-weight: $font-weight-medium;
+}
+
+.text-light {
+  font-weight: $font-weight-light;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-secondary {
+  color: $color-secondary;
+}
+
+// Size utilities
+.text-xs {
+  font-size: $font-size-sm;
+}
+
+.text-sm {
+  font-size: $font-size-base;
+}
+
+.text-md {
+  font-size: $font-size-lg;
+}
+
+.text-lg {
+  font-size: $font-size-xl;
+}
+
+.text-xl {
+  font-size: $font-size-2xl;
+}
+
+.text-2xl {
+  font-size: $font-size-3xl;
+}
+
+.text-3xl {
+  font-size: $font-size-4xl;
+}
+
+.text-4xl {
+  font-size: $font-size-5xl;
+}
+
+// Line height
+.leading-tight {
+  line-height: 1.2;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
+.leading-loose {
+  line-height: 1.8;
+}

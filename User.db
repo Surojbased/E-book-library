@@ -1,0 +1,3 @@
+if User.query.filter_by(username=username).first():
+    ...
+new_user = User(username=username, email=email, password=hashed_password)

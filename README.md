@@ -2,7 +2,7 @@
 Here’s a professional GitHub project description you can use for your E-Book Library project (HTML, CSS, JS, Python, Flask, DBMS):
 
 📚 E-Book Library
-
+Database link - http://localhost/phpmyadmin/index.php?route=/database/structure&db=ebook_library
 An E-Book Library Web Application built using HTML, CSS, JavaScript, Python (Flask), and DBMS.
 This project allows users to explore, search, and read e-books online with user authentication, book management, and category filtering features.
 
